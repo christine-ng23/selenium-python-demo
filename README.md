@@ -5,8 +5,8 @@ This project contains automated tests for a Web application using **Selenium**, 
 ## Setup
 
 ```bash
-git clone https://github.com/your-org/web-tests.git
-cd web-tests
+git clone git@github.com:christine-ng23/selenium-python-demo.git
+cd selenium-python-demo
 pip install -r requirements.txt
 ```
 
@@ -25,9 +25,10 @@ allure serve reports
 
 ## Folder Structure
 
+- core/ - The core libraries layer consists of product independent, widely reusable components such as base page, utilities of logging, report, load data, etc.
 - pages/ – Page Object Model for UI components
 - tests/ – Web test cases
-- config/ – Browser and URL configuration
+- config/ – configuration for Browser, URL, downloads directory, etc.
 
 ## Dependencies
 
