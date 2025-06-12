@@ -10,10 +10,6 @@ cd selenium-python-demo
 pip install -r requirements.txt
 ```
 
-Make sure the `qa-shared` repo is available either via:
-- git submodule: `git submodule update --init --recursive`
-- Or as an installed package
-
 ## Running Tests
 
 Run tests in parallel:
