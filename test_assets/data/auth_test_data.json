@@ -1,0 +1,102 @@
+{
+    "common": {
+        "valid_username": "username",
+        "valid_password": "8@4BXxSickt6ZMr",
+        "invalid_password": "wrongpass"
+    },
+    "login": [
+        {
+            "id": "L01",
+            "description": "Valid login",
+            "input": {
+                "username": "username",
+                "password": "8@4BXxSickt6ZMr"
+            },
+            "expected": "Success"
+        },
+        {
+            "id": "L02",
+            "description": "Wrong password",
+            "input": {
+                "username": "username",
+                "password": "wrongpass"
+            },
+            "expected": "Error"
+        },
+        {
+            "id": "L03",
+            "description": "Nonexistent username",
+            "input": {
+                "username": "non_user",
+                "password": "8@4BXxSickt6ZMr"
+            },
+            "expected": "Error"
+        },
+        {
+            "id": "L04",
+            "description": "Blank fields",
+            "input": {
+                "username": "",
+                "password": ""
+            },
+            "expected": "Error"
+        }
+    ],
+    "register": [
+        {
+            "id": "R01",
+            "description": "Valid registration",
+            "input": {
+                "first_name": "John",
+                "last_name": "Doe",
+                "username": "new_user_123",
+                "password": "Strong@123"
+            },
+            "expected": "Success"
+        },
+        {
+            "id": "R02",
+            "description": "Username already taken",
+            "input": {
+                "first_name": "Jane",
+                "last_name": "Doe",
+                "username": "username",
+                "password": "Another@123"
+            },
+            "expected": "Error"
+        },
+        {
+            "id": "R03",
+            "description": "Weak password - no special char",
+            "input": {
+                "first_name": "Alice",
+                "last_name": "Smith",
+                "username": "alice_smith",
+                "password": "Weak1234"
+            },
+            "expected": "Error"
+        },
+        {
+            "id": "R04",
+            "description": "Password length is less than 8",
+            "input": {
+                "first_name": "Bob",
+                "last_name": "Jones",
+                "username": "bobbyj",
+                "password": "A@1a"
+            },
+            "expected": "Error"
+        },
+        {
+            "id": "R05",
+            "description": "Blank fields",
+            "input": {
+                "first_name": "",
+                "last_name": "",
+                "username": "",
+                "password": ""
+            },
+            "expected": "Error"
+        }
+    ]
+}

@@ -30,7 +30,7 @@ def test_file_download(driver_with_download_dir):
     for i in range(1, 3):
         file_name = links[i].text
         file_path = os.path.join(download_dir, file_name)
-        download_page.click_link(links[i])
+        download_page.click(links[i])
         logger.info(f"Clicked to download: {file_name}")
         downloaded_files.append(file_path)
 

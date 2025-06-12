@@ -8,7 +8,7 @@ class IFramePage(BasePage):
     def write_in_iframe(self, text):
         iframe_element = self.find(self.IFRAME)
         self.switch_to_frame(iframe_element)  # Switch to frame using element
-        self.type(self.BODY, text, clear=True)
+        self.send_keys(self.BODY, text, clear=True)
         self.switch_to_default()
 
     def get_text_from_iframe(self):

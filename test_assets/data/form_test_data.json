@@ -1,0 +1,155 @@
+[
+  {
+    "id": "01",
+    "description": "All valid data",
+    "input": {
+      "first_name": "John",
+      "last_name": "Doe",
+      "email": "john.doe@example.com",
+      "gender": "Male",
+      "mobile": "1234567890",
+      "date_of_birth": "2020/01/20",
+      "subjects": ["Maths", "Arts"],
+      "hobbies": ["Sports", "Reading", "Music"],
+      "picture": "images.jpeg",
+      "current_address": "123 Main Street, Apt 4B",
+      "state": "NCR",
+      "city": "Gurgaon"
+    },
+    "expected_result": "Success"
+  },
+  {
+    "id": "02",
+    "description": "First name contains digits",
+    "input": {
+      "first_name": "J0hn",
+      "last_name": "Doe",
+      "email": "john.doe@example.com",
+      "gender": "Female",
+      "mobile": "1234567890",
+      "subjects": ["Arts"],
+      "hobbies": ["Sports"]
+    },
+    "expected_result": "Success"
+  },
+  {
+    "id": "03",
+    "description": "Last name contains special characters",
+    "input": {
+      "first_name": "John",
+      "last_name": "D@e",
+      "email": "john.doe@example.com",
+      "gender": "Other",
+      "mobile": "1234567890"
+    },
+    "expected_result": "Success"
+  },
+  {
+    "id": "04",
+    "description": "Email field is blank",
+    "input": {
+      "first_name": "Anna",
+      "last_name": "Lee",
+      "email": "",
+      "gender": "Other",
+      "mobile": "1234567890"
+    },
+    "expected_result": "Success"
+  },
+  {
+    "id": "05",
+    "description": "First name is blank",
+    "input": {
+      "first_name": "",
+      "last_name": "Doe",
+      "email": "john.doe@example.com",
+      "gender": "Male",
+      "mobile": "1234567890"
+    },
+    "expected_result": "Error"
+  },
+  {
+    "id": "06",
+    "description": "Last name is blank",
+    "input": {
+      "first_name": "John",
+      "last_name": "",
+      "email": "john.doe@example.com",
+      "gender": "Male",
+      "mobile": "1234567890"
+    },
+    "expected_result": "Error"
+  },
+  {
+    "id": "07",
+    "description": "Email missing '@'",
+    "input": {
+      "first_name": "Anna",
+      "last_name": "Lee",
+      "email": "annalee.example.com",
+      "gender": "Other",
+      "mobile": "1234567890"
+    },
+    "expected_result": "Error"
+  },
+  {
+    "id": "08",
+    "description": "Email has missing domain",
+    "input": {
+      "first_name": "Anna",
+      "last_name": "Lee",
+      "email": "anna@.com",
+      "gender": "Other",
+      "mobile": "1234567890"
+    },
+    "expected_result": "Error"
+  },
+  {
+    "id": "09",
+    "description": "Gender not selected",
+    "input": {
+      "first_name": "John",
+      "last_name": "Doe",
+      "email": "john.doe@example.com",
+      "gender": "",
+      "mobile": "1234567890"
+    },
+    "expected_result": "Error"
+  },
+  {
+    "id": "10",
+    "description": "Mobile number is blank",
+    "input": {
+      "first_name": "John",
+      "last_name": "Doe",
+      "email": "john.doe@example.com",
+      "gender": "Male",
+      "mobile": ""
+    },
+    "expected_result": "Error"
+  },
+  {
+    "id": "11",
+    "description": "Mobile number less than 10 digits",
+    "input": {
+      "first_name": "John",
+      "last_name": "Doe",
+      "email": "john.doe@example.com",
+      "gender": "Male",
+      "mobile": "12345678"
+    },
+    "expected_result": "Error"
+  },
+  {
+    "id": "12",
+    "description": "Mobile number contains alphabet",
+    "input": {
+      "first_name": "Jane",
+      "last_name": "Smith",
+      "email": "jane.smith@example.com",
+      "gender": "Female",
+      "mobile": "abc"
+    },
+    "expected_result": "Error"
+  }
+]

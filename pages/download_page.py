@@ -8,5 +8,3 @@ class DownloadPage(BasePage):
     def get_download_links(self):
         return self.driver.find_elements(*self.LINKS)
 
-    def click_link(self, element):
-        element.click()

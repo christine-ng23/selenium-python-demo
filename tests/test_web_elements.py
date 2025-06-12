@@ -2,12 +2,15 @@ import os
 
 import allure
 import pytest
+import pytest_check as check
 
-from config.common_config import DUMMY_BASE_URL
+from config.common_config import DUMMY_BASE_URL, QA_DEMO_URL
+from core.data_loader import load_json
 from pages.iframe_page import IFramePage
 # from shared.utils.logger import get_logger
 from core.logger import get_logger
 from pages.nested_frames_page import NestedFramesPage
+from pages.registration_form import RegistrationForm
 from pages.windows_page import WindowsPage
 
 logger = get_logger(__name__)
@@ -69,3 +72,33 @@ def test_handle_multiple_windows(driver):
     driver.switch_to.window(original_window)
     logger.info("Closed new window and returned to original")
 
+
+# Load test data
+test_data = load_json("form_test_data.json")
+# Extract parameters and IDs
+test_cases = [(tc["input"], tc["expected_result"]) for tc in test_data ]
+test_ids = [tc["id"] + " - " + tc["description"] for tc in test_data]
+
+@pytest.mark.parametrize("input_data,expected", test_cases, ids=test_ids)
+def test_form(driver, input_data, expected):
+    page = RegistrationForm(driver)
+    page.open(f"{QA_DEMO_URL}/automation-practice-form")
+
+    # logger.info("Verifying the page loaded properly")
+    # check.is_in("DEMOQA", driver.title, "Page did not load correctly")
+
+    # Soft asserts for visibility
+    check.is_true(page.is_displayed(page.FIRST_NAME), "First name field not visible")
+    check.is_true(page.is_displayed(page.LAST_NAME), "Last name field not visible")
+    check.is_true(page.is_displayed(page.EMAIL), "Email field not visible")
+    check.is_true(page.is_displayed(page.MOBILE), "Mobile field not visible")
+
+    # Fill and submit form
+    page.fill_form(input_data)
+    page.submit()
+
+    # Happy path: modal should appear
+    if expected == "Success":
+        assert page.is_success_modal_displayed(), f"Modal not shown"
+    else:
+        assert not page.is_success_modal_displayed(), f"Modal wrongly shown for invalid case"

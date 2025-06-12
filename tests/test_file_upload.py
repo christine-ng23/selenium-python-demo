@@ -3,12 +3,12 @@ import os
 import allure
 import pytest
 
-from config.common_config import DUMMY_BASE_URL
+from config.common_config import DUMMY_BASE_URL, UPLOAD_DIR
 from pages.upload_page import UploadPage
 # from shared.utils.logger import get_logger
 from core.logger import get_logger
 
-logger = get_logger("TestFileUpload")
+logger = get_logger(__name__)
 
 
 @pytest.mark.file_upload
@@ -16,7 +16,7 @@ logger = get_logger("TestFileUpload")
 @allure.tag("Happy")
 def test_file_upload(driver):
     filename = 'images.jpeg'
-    file = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'test_assets', 'uploads', 'images.jpeg'))
+    file = os.path.abspath(os.path.join(UPLOAD_DIR, filename))
     driver.get(f'{DUMMY_BASE_URL}/upload')
     logger.info("Navigated to upload page")
 

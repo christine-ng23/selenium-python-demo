@@ -1,7 +1,0 @@
-{
-    "valid_user": {"email": "user@example.com", "password": "securepassword"},
-    "test_user": {"email": "testuser@example.com", "password": "12345678"},
-    "invalid_password": {"email": "testuser@example.com", "password": "wrongpass"},
-    "empty": {"email": "", "password": ""},
-    "sql_injection": {"email": "' OR '1'='1", "password": "' OR '1'='1"}
-}

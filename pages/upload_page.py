@@ -12,7 +12,7 @@ class UploadPage(BasePage):
     UPLOADED_FILE = (By.ID, "uploaded-files")
 
     def upload_file(self, file_path):
-        self.type(self.FILE_UPLOAD, file_path)
+        self.send_keys(self.FILE_UPLOAD, file_path)
         logger.info(f"Injected the file path into the form: {file_path}")
 
     def submit(self):
